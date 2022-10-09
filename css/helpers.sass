@@ -1,0 +1,31 @@
+$orange-secondary: #E97522
+$white-primary: #fff
+$dark-gray: #585858
+$light-gray: #b1b1b1
+
+@mixin flex-center()
+    display: flex
+    justify-content: center
+    align-items: center
+
+.flex
+    display: flex
+
+.row
+    flex-direction: row
+
+.column
+    flex-direction: column
+
+.none
+    display: none
+
+// убрал маргины и падинги у всего чтобы можно было адекватно работать
+*
+    margin: 0
+    padding: 0
+
+// чтобы картинки за блоки не лезли
+img
+    max-width: 100%
+

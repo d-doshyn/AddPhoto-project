@@ -1,0 +1,453 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+        //- jquery 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer)
+
+        //- фавикон
+        link(rel="shortcut icon" href="img/favicon.png" type="image/x-icon")
+
+        //- шрифты из google fonts
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet")
+
+        //- fontawesome
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer")
+
+        //- emailJS библиотека для отправки писем
+        script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js")
+
+        //- swiper
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css")
+        script(src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js")
+
+        //- owl carousel
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer type="module")
+
+
+        //- стили
+        link(rel="stylesheet" href="css/helpers.sass")
+        link(rel="stylesheet" href="css/style.sass")
+        link(rel="stylesheet" href="css/responsive.sass")
+
+        //- обрати внимание, давай подключать скрипт у хеда, чтоб в коде было меньше беспорядка
+        script(src="js/burger.js" type="module" defer) 
+        script(src="js/imageGenerator.js" type="module" defer) 
+        script(src="js/openText.js" type="module" defer) 
+        script(src="js/sendingEmail.js" type="module" defer)
+        script(src="js/swiperSlider.js" type="module" defer)
+        script(src="js/owlCarousel.js" type="module" defer) 
+        script(src="js/preloader.js" defer)
+        script(src="js/anchor.js" defer)
+        script(src="js/openModal.js" defer)
+        
+        //- а отсюда я убрал модуль, ибо так нихера не работает
+        script(src="js/checkingEmail.js" defer)
+
+        title AddPhoto - фотосессии на заказ
+    body 
+        //- тут у нас прелоадер
+        .preloader-body
+            figure.preloader
+
+        //- а тут остальной контент
+        #content
+            //- хедер
+            header.flex
+                figure.logo.flex 
+                    .image-header
+                        img(src="img/favicon.png")
+                    h1.logo-header 
+                        span.orange-logo ADD #[br]
+                        span.gray-logo PHOTO
+                nav.nav-menu.burger-menu.none
+                    p.menu-item
+                        a.anchor-trigger(href="#portfolio") Портфолио
+                    p.menu-item
+                        a.anchor-trigger(href="#kinds") Виды работ
+                    p.menu-item
+                        a.anchor-trigger(href="#about") О фотостудии
+                    p.menu-item
+                        a.anchor-trigger(href="#prices") Услуги и цены 
+                    p.menu-item
+                        a.anchor-trigger(href="#contacts") Контакты
+                article.phone-number
+                    button.callback Обратный звонок
+                    .number-call
+                        a.call-us(href="tel:+380979555364") +38 (097) 955 5364
+                figure.burger-menu-trigger.flex.column 
+                    .line.first
+                    .line.to-disappear
+                    .line.second
+
+            //- главная секция
+            section#about.main.column
+                figure.dimmer
+                .main-text.column 
+                    .main-title 
+                        h1 Профессиональная фотосессия в студии 
+                    .main-desc.none
+                        h2 Наша фотостудия позволит исполнить ваши мечты  
+                        p Фотографии стали неотъемлемой частью нашей жизни. Это теперь не просто памятные снимки в альбомах, ныне фото становиться способом понравиться окружающим, получить восхищение, заявить о себе всему миру. Выбор правильной фотостудии занимает далеко не последнее место в получение фотографий. И мы с точностью заявляем, что нашей фотостудией вы останетесь довольны и еще не раз захотите возвращаться к нам.     
+                    .main-button.flex
+                        button.consultation Получить консультацию
+                    p.random-img-text Random photo generated by #[a(href="https://unsplash.com/") Unsplash API]
+
+            //- слайдер на swiper js
+            section#portfolio.first-slider 
+                .title
+                    h2 Наши работы
+                .swiper
+                    .swiper-wrapper
+                        .swiper-slide(style="background-image: url(img/sliderpic.png);")
+                        .swiper-slide(style="background-image: url(img/sliderpic3.png);")
+                        .swiper-slide(style="background-image: url(img/sliderpic2.png);")
+                    .swiper-pagination
+
+            //- слайдер Наши локации (на owl carousel)
+            section.locations-slider 
+                .title 
+                    h2 Наши локации
+                .loc-slider
+                    .owl-carousel.owl-theme 
+                        .item
+                            img(src='./img/locimg1.png')
+                        .item
+                            img(src='./img/locimg2.png')
+                        .item
+                            img(src='./img/locimg3.png')
+
+            //- секция с видео
+            section.photos.flex.column
+                .title
+                    h2 Оформление фотостудии
+                .photos-video
+                    video(muted src="./img/video.mp4" controls) 
+
+            //- вид работ
+            section#kinds.photos-kinds 
+                .title
+                    h2 Виды работ
+                article.kinds-of-photos
+                    .block-kind
+                        img(src="img/lovestory.png")
+                        p.kids-block-text Фотосессия Love story
+                    .block-kind.high
+                        img(src="img/teenagers.png")
+                        p.kids-block-text Фотосессия для подростков
+                    .block-kind
+                        img(src="img/boys.png")
+                        p.kids-block-text Фотосессия для парней
+                    .block-kind.high
+                        img(src="img/groupphoto.png")
+                        p.kids-block-text Групповая фотосессия
+                    .block-kind
+                        img(src="img/lookbook.png")
+                        p.kids-block-text Фотосессия лукбук
+                    .block-kind
+                        img(src="img/animal.png")
+                        p.kids-block-text Фотосессия с животными
+                    .block-kind
+                        img(src="img/couple.png")
+                        p.kids-block-text Парная фотосессия
+                    .block-kind.high
+                        img(src="img/family.png")
+                        p.kids-block-text Семейная фотосессия
+                    .block-kind
+                        img(src="img/pregnant.png")
+                        p.kids-block-text Фотосессия для беременных
+                    .block-kind
+                        img(src="img/business.png")
+                        p.kids-block-text Фотосессия "Деловой стиль"
+                    .block-kind.big-block
+                        img.small(src="img/girls-small-img.png")
+                        img.big(src="img/girl.png")
+                        p.kids-block-text Фотосессия для девушек
+
+            //- секция Этапы работ
+            section.phases.flex.column
+                .title 
+                    h2 Этапы работ
+                section.phaseboxes.flex.column 
+                    .phasebox.box1
+                        .phase-text
+                            .phase-title 
+                                h3 Заявка
+                            .phase-desc 
+                                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, excepturi! Beatae, id!
+                        .phase-number 
+                            h3 1
+                    .phasebox.box2
+                        .phase-text
+                            .phase-title 
+                                h3 Бронь
+                            .phase-desc 
+                                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, excepturi! Beatae, id!
+                        .phase-number 
+                            h3 2
+                    .phasebox.box3
+                        .phase-text
+                            .phase-title 
+                                h3 Составление Технического задания
+                            .phase-desc 
+                                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, excepturi! Beatae, id!
+                        .phase-number 
+                            h3 3
+                    .phasebox.box4 
+                        .phase-text
+                            .phase-title 
+                                h3 Съёмка
+                            .phase-desc 
+                                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, excepturi! Beatae, id!
+                        .phase-number 
+                            h3 4
+                    .phasebox.box5 
+                        .phase-text
+                            .phase-title 
+                                h3 Готовые фото
+                            .phase-desc 
+                                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, excepturi! Beatae, id!
+                        .phase-number 
+                            h3 5
+            //- два чисто текстовых блока
+            section.text-section.blue-text-block.column
+                .title.no-margin
+                    h2 Фотостудия для любых идейных фотосессий
+                p.visible-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quisquam pariatur repellendus minima. Vero unde repellat maxime iusto autem, voluptate necessitatibus, illum, rerum placeat fugiat praesentium at magnam! Laudantium, placeat inventore similique culpa doloribus ad aspernatur laborum magni hic modi itaque atque voluptate sapiente adipisci consequatur dolor tempore aliquid harum!
+                p.invisible-text.none Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eius et id quasi quae alias sunt doloribus rem, consectetur, in laudantium esse officiis neque eaque rerum cupiditate. Accusamus quam sint doloremque necessitatibus. Ratione sapiente commodi totam vitae voluptatem quas fugiat! Animi, cum cupiditate perferendis velit iste odio quam porro ad illo voluptas accusamus nulla dolor voluptatum ipsam officiis est molestias ratione libero ut, incidunt, autem ipsa blanditiis? Explicabo, eum cupiditate ex quibusdam nisi tempora ut quisquam excepturi. Laboriosam dolorum dolores ipsam ipsum illum laborum impedit expedita consequuntur, libero aperiam nihil nostrum alias autem velit exercitationem! Error quam velit fugit illum.
+                h4.more-about 
+                    p Подробнее &nbsp;
+                    i.fa-solid.fa-angle-down
+
+            //- секция Стоимось фотосесии
+            section#prices.prices.flex.column
+                .title 
+                    h2 Стоимость фотосесии      
+                .priceboxes
+                    .pricebox.mini 
+                        .pricebox-head 
+                            .pricebox-name
+                                h4 MINI
+                            .pricebox-price      
+                                h1 2500$  
+                            .pricebox-loc 
+                                p /1 локация
+                        .pricebox-body
+                            ul 
+                                li.flex.row 
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Длительность - 30 минут
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Исходники — До 100 штук
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Ретушь — 4 фото
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Аренда фотостудии — Бесплатно
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Любой образ
+                        .pricebox-footer 
+                            button.consultation Выбрать локацию
+                    .pricebox.standart 
+                        .pricebox-head 
+                            .pricebox-name
+                                h4 STANDART
+                            .pricebox-price      
+                                h1 5000$  
+                            .pricebox-loc 
+                                p /1 локация
+                        .pricebox-body
+                            ul 
+                                li.flex.row 
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Длительность - 30 минут
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Исходники — До 200 штук
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Ретушь — 8 фото
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Аренда фотостудии — Бесплатно
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Любой образ
+                        .pricebox-footer 
+                            button.consultation Выбрать локацию
+                    .pricebox.maxi 
+                        .pricebox-head 
+                            .pricebox-name
+                                h4 MAXI
+                            .pricebox-price      
+                                h1 7500$  
+                            .pricebox-loc 
+                                p /1 локация
+                        .pricebox-body
+                            ul 
+                                li.flex.row 
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Длительность - 30 минут
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Исходники — До 100 штук
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Ретушь — 4 фото
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Аренда фотостудии — Бесплатно
+                                li.flex.row  
+                                    i.fa-solid.fa-circle-check
+                                    p &nbsp; Любой образ
+                        .pricebox-footer 
+                            button.consultation Выбрать локацию
+
+            section.text-section.yellow-text-block.column
+                .title.no-margin
+                    h2 Фотоисскуство в тренде 
+                p.visible-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quisquam pariatur repellendus minima. Vero unde repellat maxime iusto autem, voluptate necessitatibus, illum, rerum placeat fugiat praesentium at magnam! Laudantium, placeat inventore similique culpa doloribus ad aspernatur laborum magni hic modi itaque atque voluptate sapiente adipisci consequatur dolor tempore aliquid harum!
+                p.invisible-text.none.inv-text1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eius et id quasi quae alias sunt doloribus rem, consectetur, in laudantium esse officiis neque eaque rerum cupiditate. Accusamus quam sint doloremque necessitatibus. Ratione sapiente commodi totam vitae voluptatem quas fugiat! Animi, cum cupiditate perferendis velit iste odio quam porro ad illo voluptas accusamus nulla dolor voluptatum ipsam officiis est molestias ratione libero ut, incidunt, autem ipsa blanditiis? Explicabo, eum cupiditate ex quibusdam nisi tempora ut quisquam excepturi. Laboriosam dolorum dolores ipsam ipsum illum laborum impedit expedita consequuntur, libero aperiam nihil nostrum alias autem velit exercitationem! Error quam velit fugit illum.
+                h4.more-about.more1
+                    p Подробнее &nbsp;
+                    i.fa-solid.fa-angle-down.angle1
+
+            //- секция Подарочный сертификат
+            section.gift.flex.column
+                .title 
+                    h2 Подарочный сертификат на фотосессию
+                .giftcard
+                    .giftcard-left
+                        .giftcard-head
+                            .giftcard-sub 
+                                h4 сертификат на фотосессию
+                            .giftcard-title
+                                h2 Это подарок, который западает в душу
+                        ul.giftcard-list 
+                            li.flex.column 
+                                i.fa-regular.fa-circle-check.check
+                                p &nbsp; Креативное оформление
+                            li.flex.column 
+                                i.fa-regular.fa-circle-check.check
+                                p &nbsp; Открытый календарь
+                            li.flex.column 
+                                i.fa-regular.fa-circle-check.check
+                                p &nbsp; Все включено
+                    .giftcard-right.flex.column
+                        .giftcard-image 
+                            .giftcard-img 
+                                img(src="./img/convert.png")
+                            .giftcard-image-sub
+                                p Срок действия сертификата: 2 месяца со дня приобретения.
+                        .giftcard-btn
+                            button.consultation Приобрести
+
+            //- слайдер с отзывати ( slick )
+            section#mind.review
+                .title 
+                    h2 Отзывы
+                .review-slider.owl-carousel.owl-theme 
+                    .slide.column 
+                        .slide-head 
+                            i.fa-solid.fa-user
+                        .slide-body 
+                            h3 Мария
+                            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum suscipit ducimus laudantium dolores sequi tempore? Repellendus dolorum rem debitis maxime, molestiae doloremque fuga explicabo quibusdam molestias! Ea perspiciatis quisquam nemo.
+                    .slide.column 
+                        .slide-head 
+                            i.fa-solid.fa-user
+                        .slide-body 
+                            h3 СерГей
+                            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum suscipit ducimus laudantium dolores sequi tempore? Repellendus dolorum rem debitis maxime, molestiae doloremque fuga explicabo quibusdam molestias! Ea perspiciatis quisquam nemo.
+                    .slide.column 
+                        .slide-head 
+                            i.fa-solid.fa-user
+                        .slide-body 
+                            h3 Руслан
+                            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum suscipit ducimus laudantium dolores sequi tempore? Repellendus dolorum rem debitis maxime, molestiae doloremque fuga explicabo quibusdam molestias! Ea perspiciatis quisquam nemo.
+                .review-button 
+                    button.consultation.modal-opener Добавить отзыв
+
+                .modal-review-container 
+                    .modal-review-body.blue-text-block
+                        .close-modal-mind 
+                            i.fa-solid.fa-xmark
+                        .modal-review-img 
+                            img(src="img/callback.png")
+                        form.modal-review-form
+                            h2.modal-form-title Оставьте отзыв о том, как прошла ваша фотосессия
+                            .modal-input-block 
+                                h5.modal-input-name Имя 
+                                input.modal-input(placeholder="Введите ваше имя" required="required")
+                            .modal-input-block 
+                                h5.modal-input-name Отзыв 
+                                textarea.modal-input(placeholder="Введите ваш отзыв" required="required")
+                            button.send-mind Отправить
+                            p.modal-warning Нажимая кнопку «Отправить», вы даете согласие на обработку персональных данных
+
+            //- секция с отправкой имейла
+            section#contacts.location-email.flex.column 
+                article.map 
+                    iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24142.456286435954!2d30.776971427050153!3d50.503227362868465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4dbd0c15dd021%3A0x389b3cb34c503f15!2z0J_QsNGA0Log0LjQvC4g0KIuINCTLiDQqNC10LLRh9C10L3QutC-!5e0!3m2!1sru!2sua!4v1663235798313!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+                form.email.blue-text-block
+                    h2.form-title Форма обратной связи
+                    .text-input 
+                        h5.input-name Имя
+                        input.callback-form-input.name-input-text(placeholder="Введите ваше имя" required="required")
+                    .text-input 
+                        h5.input-name.mail-input E-Mail #[i.fa-regular.fa-circle-dot.validation]
+                        input.callback-form-input.email-input(placeholder="Введите ваш E-Mail" required="required" onkeydown="getEmail()")
+                    .text-input 
+                        h5.input-name Телефон
+                        input.callback-form-input.phone-number-input(placeholder="Введите ваш телефон" required="required")
+                    button.send-mail Отправить
+                    p.warning Нажимая кнопку «Отправить», вы даете согласие на обработку персональных данных
+
+            //- футер
+            footer.blue-text-block
+                .footer-top 
+                    figure.logo-footer
+                        .footer-img
+                            img(src="./img/favicon.png")
+                        h1.footer-logo-text
+                            span.orange-logo ADD #[br]
+                            span.gray-logo PHOTO
+                    .menu-nav
+                        p
+                            a.menu-nav-text.anchor-trigger(href="#portfolio") Портфолио
+                        p
+                            a.menu-nav-text.anchor-trigger(href="#kinds") Виды работ
+                        p
+                            a.menu-nav-text.anchor-trigger(href="#about") О фотостудии
+                        p
+                            a.menu-nav-text.anchor-trigger(href="#prices") Услуги и цены
+                        p
+                            a.menu-nav-text.anchor-trigger(href="#mind") Отзывы
+                        p
+                            a.menu-nav-text.anchor-trigger(href="#contacts") Контакты
+                hr.top-bottom-line
+                .footer-bottom 
+                    p.social-text Наши социальные сети:
+                    .social-icons
+                        figure.footer-icon
+                            a(href="#")
+                                i.fa-brands.fa-instagram
+                        figure.footer-icon
+                            a(href="#")
+                                i.fa-brands.fa-facebook-f
+                        figure.footer-icon
+                            a(href="#")
+                                i.fa-brands.fa-twitter
+                        figure.footer-icon
+                            a(href="#")
+                                i.fa-brands.fa-telegram

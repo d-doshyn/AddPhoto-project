@@ -1,0 +1,421 @@
+@import helpers.sass
+
+@media screen and (min-width: 768px)
+    // header
+    .image-header
+        width: 30px
+
+    .logo-header
+        font-size: 16px
+
+    .burger-menu-trigger
+        display: none
+
+    .phone-number
+        display: flex
+        flex-direction: column-reverse
+        justify-content: end
+        gap: 5px
+
+    .burger-menu
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        background-color: transparent
+        position: static
+        padding: 0
+        font-size: 12px
+        gap: 10px
+        width: auto
+
+        a
+            text-decoration: none
+            color: #4a4a4a
+            font-weight: 500
+            margin: 0
+
+    .callback
+        display: flex
+
+    // main
+    .main
+        // опять же исправил костыль с высотой
+        height: 600px
+    
+    .main-text
+        z-index: 1
+        text-align: left
+        justify-content: start
+        margin: 50px 50px 0 50px
+
+    .main-title
+        font-size: 29px
+        letter-spacing: 2px
+    
+    .main-desc
+        margin-top: 25px
+        display: block
+    
+    .main-desc h2 
+        font-size: 27px
+
+    .main-desc p 
+        margin-top: 20px
+        font-size: 17px
+
+    .main-button 
+        margin-top: 25px
+        justify-content: start
+
+    .consultation 
+        font-size: 16px
+
+    // первый слайдер
+    .swiper-slide 
+        background-position: center
+        background-size: cover
+        width: 500px !important
+        height: 450px !important
+
+    // этапы работ
+    .phase-number
+        bottom: -30px
+        left: -30px
+
+    .phasebox
+        width: 300px
+        text-align: left
+
+    .phase-title
+        font-size: 22px
+    
+    .phase-desc
+        font-size: 18px
+
+    // виды работ
+    .kinds-of-photos
+        grid-template-columns: 1fr 1fr 1fr
+        padding: 0 5%
+
+    .big
+        display: block
+
+    .small
+        display: none
+
+    .big-block
+        grid-column-start: span 2
+
+    .block-kind
+        img
+            border-radius: 10px
+
+    // текстовые блоки
+    .text-section
+        text-align: left
+        gap: 30px
+        padding: 50px 40px
+        position: relative
+
+    .visible-text, .invisible-text
+        font-size: 18px
+
+    .more-about
+        position: absolute
+        bottom: 20px
+        right: 30px
+
+    // секция Стоимость товаров
+    .pricebox
+        width: 300px
+        padding: 30px
+
+    .pricebox-name
+        font-size: 24px
+
+    .pricebox-price
+        font-size: 28px
+
+    .pricebox-body
+        font-size: 20px
+
+    .pricebox-body li
+        margin: 30px 0 0 0
+
+    
+    // локация и емеил
+    .location-email
+        flex-direction: row
+        gap: 0px
+
+    .map
+        height: 400px
+
+    .email
+        width: 330px
+
+    // подарочный сертификат
+    .giftcard
+        display: flex
+
+    .giftcard-left
+        @include flex-center
+        flex-direction: column
+
+    .giftcard-list li
+        flex-direction: row
+        font-size: 20px
+
+    .giftcard-image img
+        width: 100%
+
+    .item
+        padding: 10px
+
+    // модалка с отзывом
+    .modal-review-body
+        flex-direction: row-reverse
+        padding: 20px 20px 
+
+    .modal-review-img
+        width: 200px
+
+        img
+            width: 100%
+
+@media screen and ( min-width: 1024px)
+    // footer
+    .footer-top, .footer-bottom
+        flex-direction: row
+
+    .menu-nav
+        grid-template-columns: repeat(3, 1fr)
+
+    .main
+        text-align: left
+
+    .main-text
+        width: 80%
+        margin: 0
+
+    .main-title 
+        font-size: 31px
+    
+    .main-desc h2
+        font-size: 29px
+
+    .main-desc p
+        font-size: 19px
+
+    .main-img
+        width: 150px
+    
+    .photos-title
+        font-size: 24px
+    
+    .phasebox
+        width: 300px
+
+    // footer
+    .top-bottom-line
+        width: 90%
+
+    // первый слайдер
+    .swiper-slide 
+        background-position: center
+        background-size: cover
+        width: 700px !important
+        height: 600px !important   
+
+    .item
+        padding: 20px
+
+    // слайдер с отзывами
+    .slide
+        font-size: 20px   
+
+@media screen and (min-width: 1440px)
+    .phone-number
+        flex-direction: row
+        align-items: center
+        gap: 20px
+
+    .burger-menu
+        font-size: 15px
+        gap: 30px
+
+    .main
+        height: 800px
+
+    .main-title
+        font-size: 43px
+
+    .main-desc h2
+        font-size: 34px
+
+    .main-desc p 
+        font-size: 24px
+
+    .consultation
+        font-size: 20px
+        width: 350px
+        height: 60px
+
+    // первый слайдер
+    .swiper-slide 
+        background-position: center
+        background-size: cover
+        width: 800px !important
+        height: 700px !important
+
+
+    // секция этапы работ
+
+    .phases
+        background-size: 100%
+
+    .phasebox
+        width: 350px
+
+    .box1
+        left: -400px
+
+    .box2
+        left: 200px
+        // bottom: 100px
+
+    .box3
+        right: 300px
+        // bottom: 150px
+
+    .box4
+        left: 300px
+        // bottom: 250px
+
+    .box5
+        right: 200px
+        // bottom: 320px
+
+
+    // виды работ
+    .kinds-of-photos
+        padding: 0 15%
+        gap: 30px
+
+    .kids-block-text
+        font-size: 25px
+
+    // текстовые блоки
+    .text-section
+        padding: 60px 110px
+
+    .visible-text, .invisible-text
+        font-size: 23px
+
+    // секция Стоимость фотосессии
+    .pricebox
+        height: 600px
+        width: 350px
+        @include flex-center
+        flex-direction: column
+        align-items: start
+
+    .pricebox-name
+        font-size: 35px
+
+    .pricebox-price
+        font-size: 40px
+
+    // локация и емеил
+    .map
+        height: 550px
+        width: 750px
+
+    .email
+        height: 570px
+        width: 460px
+        gap: 40px
+
+    .form-title
+        font-size: 30px
+
+    .send-mail, .callback-form-input
+        width: 360px
+        height: 50px
+
+    .input-name
+        font-size: 20px
+
+    .send-mail
+        font-size: 20px
+        letter-spacing: 2px
+
+    .callback-form-input
+        font-size: 18px
+        
+        &::placeholder
+            font-size: 18px
+    
+    // подарочный сертификат
+    .giftcard-sub
+        font-size: 20px
+
+    .giftcard
+        text-align: left
+        padding: 60px
+
+    .giftcard-left
+        align-items: start
+        width: 500px
+
+    .giftcard-title
+        font-size: 26px
+
+    .giftcard-img img
+        width: 450px
+
+    // footer
+    .menu-nav
+        grid-template-columns: repeat(6, 1fr)
+
+    .footer-top
+        gap: 160px
+
+    .footer-bottom
+        gap: 30px
+
+    // модалка с отзывом
+    .modal-review-body
+        padding: 40px 40px 
+
+    .modal-review-img
+        width: 400px
+
+    .modal-form-title
+        font-size: 25px
+
+    .modal-input, .send-mind
+        height: 50px
+
+    .modal-review-form
+        width: 400px
+        gap: 30px
+
+    textarea.modal-input
+        height: 90px !important
+        padding-top: 5px
+
+    .modal-input-name
+        font-size: 18px
+
+    .modal-input
+        font-size: 17px
+
+    .send-mind
+        font-size: 19px
+        letter-spacing: 2px
+
+    .slide
+        width: 400px
+        gap: 20px

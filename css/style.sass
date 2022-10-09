@@ -1,0 +1,681 @@
+@import helpers.sass
+
+html, body
+    overflow-x: hidden
+
+body
+    // это наш шрифт
+    font-family: 'Montserrat', sans-serif
+
+header
+    height: 60px
+    align-items: center
+    justify-content: space-around
+
+.logo
+    @include flex-center()
+    gap: 5px
+
+.logo-header
+    font-size: 13px
+    font-weight: 900
+
+.image-header
+    width: 20px
+
+.orange-logo
+    color: $orange-secondary
+
+.gray-logo
+    color: $light-gray
+
+.call-us
+    font-size: 15px
+    text-decoration: none
+    color: $dark-gray
+    font-weight: 600
+
+.number-call
+    text-align: right
+
+.burger-menu-trigger
+    position: relative
+    justify-content: space-between
+    height: 20px
+    width: 25px
+    cursor: pointer
+
+.to-disappear
+    z-index: -1
+
+.first
+    top: 0
+
+.second
+    bottom: 0
+
+.to-disappear
+    top: 50%
+    transform: translateY(-50%)
+
+.line
+    position: absolute
+    width: 100%
+    background-color: $orange-secondary
+    height: 2px
+    border-radius: 5px
+    transition: 0.5s
+
+.burger-first-line
+    top: 50%
+    transform: translateY(-50%) rotate(45deg)
+
+.burger-second-line
+    bottom: 50%
+    transform: translateY(50%) rotate(-45deg)
+
+.burger-disappearing-line
+    background-color: #fff
+
+.callback
+    display: none
+
+.callback
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 2px solid $orange-secondary
+    background-color: transparent
+    height: 25px
+    width: 170px
+    font-family: 'Montserrat', sans-serif
+    color: $orange-secondary
+    border-radius: 7px
+    transition: 0.5s
+    cursor: pointer
+    display: none
+
+    &:hover
+        color: $white-primary
+        background-color: $orange-secondary
+
+.burger-menu
+    display: flex
+    position: absolute
+    top: 60px
+    left: 0
+    width: 100%
+    height: calc(100% - 60px)
+    background-color: rgba(0, 0, 0, 0.7)
+    flex-direction: column
+    align-items: end
+    padding-top: 20px
+    gap: 20px
+    z-index: 4
+
+    a
+        margin-right: 20px
+        text-decoration: none
+        color: #fff
+
+.call-us, .anchor-trigger
+    transition: 0.5s
+
+    &:hover
+        color: $orange-secondary
+
+// главная секция
+.main
+    @include flex-center()
+    position: relative
+    text-align: center
+    background-color: #444444
+    color: #F5F5F5
+    // сори что трогал твою секцию но я исправил костыль
+    height: 500px
+    width: 100%
+    background-size: cover
+    background-position: center
+
+.dimmer
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    background-color: #00000057
+    z-index: 1
+
+.random-img-text
+    position: absolute
+    font-size: 13px
+    right: 15px
+    bottom: 15px
+
+    a
+        color: #fff
+        transition: 0.3s
+
+        &:hover
+            color: $orange-secondary
+
+.main-text
+    z-index: 2
+
+.main-title
+    font-size: 17px
+    letter-spacing: 1px
+
+.main-img
+    justify-content: center
+    align-items: center
+    position: absolute
+    width: 50px
+    z-index: 0
+
+.main-img img
+    width: 100%
+
+.main-button
+    @include flex-center()
+    margin-top: 20px
+
+.consultation
+    display: block
+    font-family: 'Montserrat', sans-serif
+    background: linear-gradient(180deg, #FFA96B -21.43%, #EE7A28 100%)
+    width: 300px
+    height: 50px
+    // padding: 10px 10px
+    border-radius: 10px
+    border: none
+    font-size: 15px
+    color: white
+    text-transform: uppercase
+    letter-spacing: 1.3px
+    cursor: pointer
+
+.consultation:hover
+    background: linear-gradient(180deg, #FFA96B 58.75%, #EE7A28 173.44%)
+
+// первый слайдер
+.swiper-slide 
+    background-position: center
+    background-size: cover
+    width: 300px !important
+    height: 300px !important
+
+.title
+    margin-top: 80px
+
+.swiper 
+    width: 100%
+    overflow: hidden
+    padding-top: 50px
+    padding-bottom: 50px
+
+.swiper-pagination-bullet-active
+    background-color: $orange-secondary !important
+
+// секция "Оформление фотостудии"
+.photos   
+    @include flex-center()  
+
+.title
+    text-align: center
+    margin-bottom: 20px
+    font-size: 20px
+    color: #333333
+
+.photos-video video
+    width: 100%
+
+// секция Этапы работ
+.phases
+    @include flex-center()
+    margin: 80px 0 0 0
+    background: url('../img/phasesbg.png') no-repeat center
+
+.phasebox
+    margin: 30px 0 0 0
+    text-align: center
+    border: 3px solid #EE7A28
+    border-radius: 20px
+    padding: 20px    
+    width: 250px
+    position: relative
+    background-color: white
+
+.phase-desc
+    margin: 10px 0 0 0
+
+.phase-number
+    height: 50px
+    width: 50px
+    background: #F9F4EE
+    border-radius: 50%
+    @include flex-center
+    color: #E97522
+    font-size: 20px
+    position: absolute
+    bottom: -10px
+    left: -10px
+
+.phaseboxes
+    width: 100%
+    @include flex-center()
+
+.phases-bg
+    display: none
+
+// виды работ
+.photos-kinds
+    margin: 80px 0 0 0 
+
+.kinds-of-photos
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 20px
+
+.block-kind
+    position: relative
+
+    img
+        width: 100%
+        height: 100%
+        border-radius: 5px
+
+.big
+    display: none
+
+.high
+    grid-row-start: span 2
+
+.kids-block-text
+    position: absolute
+    z-index: 1
+    bottom: 10px
+    left: 10px
+    color: #fff
+
+// секция Стоимость фотосесии
+.prices
+    margin: 50px 0 0 0
+    @include flex-center()
+
+.priceboxes
+    @include flex-center()
+    flex-wrap: wrap
+    gap: 20px
+
+.pricebox
+    width: 250px
+    border: none
+    border-radius: 20px
+    padding: 20px
+    margin: 0 0 20px 0
+
+.mini
+    background-color: #f2f4f4
+
+.standart
+    background-color: #F9F4EE
+
+.maxi
+    background-color: #F5D9C6
+
+
+
+.pricebox-name
+    font-size: 20px
+
+.pricebox-price
+    font-size: 26px
+
+.pricebox-loc
+    color: #838383
+
+.pricebox-body
+    margin: 40px 0 0 0
+
+    .fa-circle-check
+        color: #000
+
+.pricebox-body li
+    margin: 20px 0 0 0
+
+.pricebox-footer
+    margin: 20px 0 0 0
+    @include flex-center()
+
+//- два чисто текстовых блока
+.text-section
+    margin: 80px 0 0 0 
+    text-align: center
+    padding: 40px 20px
+    @include flex-center()
+    gap: 20px
+
+.blue-text-block
+    background-color: #F2F4F4
+
+.yellow-text-block
+    background-color: #F9F4EE
+
+.no-margin
+    margin: 0
+
+.more-about
+    font-size: 20px
+    color: $orange-secondary
+    cursor: pointer
+    @include flex-center()
+
+.fa-angle-down
+    transition: 0.5s
+
+.turned
+    transform: rotate(180deg)
+
+// секция отправки имейла
+.location-email
+    margin: 80px 0 0 0 
+    @include flex-center()
+    gap: 20px
+
+.map
+    width: 290px
+    height: 500px
+
+    iframe
+        width: 100%
+        height: 100%
+        border-radius: 10px
+        box-shadow: 0px 0px 1px 5px #EFEFEF
+
+.email
+    width: 270px
+    padding: 40px 10px
+    @include flex-center()
+    flex-direction: column
+    border-radius: 10px
+    gap: 20px
+
+.form-title, .warning
+    text-align: center
+
+.send-mail
+    @include flex-center()
+
+.send-mail, .callback-form-input
+    width: 250px
+    height: 35px
+    outline: none
+    border-radius: 5px
+
+.callback-form-input
+    border: 1px solid #DDDEE4
+    padding-left: 10px
+
+    &:placeholder
+        font-family: 'Montserrat', sans-serif
+
+.send-mail
+    background: linear-gradient(180deg, #FFA96B -21.43%, #EE7A28 100%)
+    cursor: pointer
+    color: #fff
+    border: none
+    font-family: 'Montserrat', sans-serif
+    letter-spacing: 1px
+    width: 260px
+
+    &:hover
+        background: linear-gradient(180deg, #FFA96B 58.75%, #EE7A28 173.44%)
+
+    &:disabled
+        opacity: 0.5
+
+.fa-circle-check
+    color: green
+
+.fa-circle-xmark
+    color: red
+
+// секция Подарочный сертификат
+.gift
+    margin: 50px 0 0 0 
+    @include flex-center()
+
+.giftcard
+    background-color: #F9F4EE
+    border-radius: 25px
+    text-align: center
+    padding: 20px
+
+.giftcard-sub
+    color: #C8C8C8
+    text-transform: uppercase
+    font-size: 12px
+
+.giftcard-list
+    font-size: 18px
+
+    li
+        margin: 30px 0 0 0
+
+.giftcard-image
+    margin: 0 0 30px 0
+
+.giftcard-right
+    @include flex-center()    
+
+.check
+    color: $orange-secondary
+// footer
+footer
+    margin-top: 80px
+    padding: 50px 20px 
+    @include flex-center()
+    flex-direction: column
+    gap: 30px
+
+.footer-top
+    @include flex-center()
+    flex-direction: column
+    gap: 30px
+
+.logo-footer
+    @include flex-center()
+    gap: 5px
+    
+.footer-logo-text
+    font-size: 27px
+    font-weight: 900
+
+.footer-img
+    width: 40px
+
+    img
+        width: 100%
+
+.menu-nav
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    column-gap: 20px
+    row-gap: 10px
+    text-align: center
+
+    a
+        text-decoration: none
+        color: #4a4a4a
+        font-weight: 700
+
+.top-bottom-line
+    width: 100%
+    background-color: $light-gray
+    border: none
+    height: 2px
+
+.footer-bottom
+    @include flex-center()
+    flex-direction: column
+    gap: 10px
+
+.social-icons
+    @include flex-center()
+    gap: 20px
+    font-size: 30px
+
+    a
+        color: #333
+        transition: .5s
+
+        &:hover
+            color: $orange-secondary
+
+// слайдер локаций
+
+
+.owl-carousel
+    display: block !important
+    cursor: grab
+
+.item
+    img 
+        border-radius: 50px
+
+.owl-dot.active span
+    background-color: $orange-secondary !important
+
+// preloader
+.preloader-body
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: #fff
+    z-index: 3
+    @include flex-center()
+
+.preloader
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    border: $orange-secondary 10px solid
+    border-top: 10px #fff solid
+    animation: preloader 1s linear infinite
+
+@keyframes preloader
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+// отзывы
+.review-slider
+    @include flex-center()
+    text-align: center
+
+.owl-item
+    @include flex-center()
+    
+
+.slide
+    @include flex-center()
+    flex-direction: column
+    width: 300px
+    gap: 10px
+
+.slide-head
+    @include flex-center()
+    font-size: 80px
+    height: 200px
+    width: 200px
+    border-radius: 50%
+    background-color: $dark-gray
+    color: $light-gray
+
+
+.review-button
+    @include flex-center()
+    margin: 20px 0 0 0
+
+// модалка с отзівом
+.close-modal-mind
+    position: absolute
+    right: 20px
+    top: 20px
+    font-size: 30px
+    height: 30px
+    width: 30px
+    text-align: center
+    color: $light-gray
+    cursor: pointer
+
+.modal-review-container
+    position: fixed
+    z-index: 5
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background-color: #0101016e
+    @include flex-center()
+    display: none
+
+.modal-review-body
+    position: relative
+    @include flex-center()
+    flex-direction: column
+    border-radius: 20px
+    padding: 10px 0
+    gap: 20px
+
+.modal-form-title
+    text-align: center
+    font-size: 18px
+
+.modal-review-form
+    width: 280px
+    box-sizing: border-box
+    padding: 0 20px
+    display: flex
+    flex-direction: column
+    gap: 10px
+
+.modal-input
+    box-sizing: border-box
+    width: 100% !important
+    outline: none
+    border: 1px solid #DDDEE4
+    padding: 0 10px
+
+    &:placeholder
+        font-family: 'Montserrat', sans-serif
+
+textarea.modal-input
+    min-height: 50px
+    font-family: 'Montserrat', sans-serif
+
+    &:placeholder
+        font-family: 'Montserrat', sans-serif
+
+.send-mind
+    @include flex-center()
+    width: 100%
+    background: linear-gradient(180deg, #FFA96B -21.43%, #EE7A28 100%)
+    cursor: pointer
+    color: #fff
+    border: none
+    font-family: 'Montserrat', sans-serif
+    letter-spacing: 1px
+    height: 40px
+
+.modal-input, .send-mind
+    height: 30px
+    border-radius: 10px
+
+.modal-warning
+    font-size: 14px
+    text-align: center
